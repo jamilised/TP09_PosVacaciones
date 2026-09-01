@@ -1,0 +1,16 @@
+.favorites-page {
+  padding: 1.5rem 0;
+}
+
+.favorites-page__title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.favorites-page__empty {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+}

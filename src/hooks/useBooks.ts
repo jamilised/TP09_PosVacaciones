@@ -1,45 +1,58 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import type { Book } from '../types/book';
 import { fetchBooksFromApi } from '../services/api';
 
-export const useBooks = (initialQuery: string = 'react') => {
+const RANDOM_TOPICS = [
+  'fiction',
+  'mystery',
+  'fantasy',
+  'adventure',
+  'history',
+  'science',
+  'art',
+  'magic',
+  'nature',
+  'music',
+  'philosophy',
+  'classic'
+];
+
+const getRandomTopic = (): string => {
+  const randomIndex = Math.floor(Math.random() * RANDOM_TOPICS.length);
+  return RANDOM_TOPICS[randomIndex];
+};
+
+export const useBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
+  const [initialRandomQuery] = useState<string>(() => getRandomTopic());
+
   useEffect(() => {
-    const loadBooks = async () => {
+    const queryToFetch = searchTerm.trim() !== '' ? searchTerm : initialRandomQuery;
+
+    const timeoutId = setTimeout(async () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchBooksFromApi(initialQuery);
-        setBooks(data);
+        const data = await fetchBooksFromApi(queryToFetch);
+        
+        const validBooks = data.filter((book) => book.title && book.id);
+        setBooks(validBooks);
       } catch (err) {
         setError('No fue posible obtener la información.');
       } finally {
         setLoading(false);
       }
-    };
+    }, 400);
 
-    loadBooks();
-  }, [initialQuery]);
-
-  const filteredBooks = useMemo(() => {
-    if (!searchTerm.trim()) return books;
-    
-    const term = searchTerm.toLowerCase();
-    return books.filter((book) => {
-      const matchTitle = book.title.toLowerCase().includes(term);
-      const matchAuthor = book.authors.some((author) =>
-        author.toLowerCase().includes(term)
-      );
-      return matchTitle || matchAuthor;
-    });
-  }, [books, searchTerm]);
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, initialRandomQuery]);
 
   return {
-    books: filteredBooks, 
+    books,
     searchTerm,
     setSearchTerm,
     loading,
