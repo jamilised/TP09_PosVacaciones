@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+  background-color: #f7f4ee; 
+  color: #2c221e; 
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
