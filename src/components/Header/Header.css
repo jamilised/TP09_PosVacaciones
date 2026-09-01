@@ -2,7 +2,10 @@
   background-color: #1a252f;
   color: #ffffff;
   padding: 1rem 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -10,4 +13,27 @@
   margin: 0;
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+.app-header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.app-header__link {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.app-header__link:hover {
+  color: #ffffff;
+}
+
+.app-header__link--active {
+  color: #3498db;
+  border-bottom-color: #3498db;
 }
