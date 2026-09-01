@@ -1,0 +1,13 @@
+.app-header {
+  background-color: #1a252f;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header__title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
