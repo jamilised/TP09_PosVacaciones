@@ -26,6 +26,6 @@
 }
 
 .search-bar-input:focus {
-  border-color: #8c2d19; /* Tono vino/borgoña */
+  border-color: #8c2d19;
   box-shadow: 0 0 8px rgba(140, 45, 25, 0.25);
 }

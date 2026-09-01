@@ -1,5 +1,5 @@
 .app-header {
-  background: linear-gradient(180deg, #2a1b17 0%, #1e1310 100%); /* Madera/Cuero oscuro */
+  background: linear-gradient(180deg, #2a1b17 0%, #1e1310 100%); 
   color: #f3e9d2;
   padding: 1.25rem 2rem;
   display: flex;
