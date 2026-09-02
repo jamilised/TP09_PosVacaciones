@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, MouseEvent } from 'react';
 import { Star } from 'lucide-react';
 import type { Book } from '../../types/book';
 import './ItemCard.css';
@@ -7,17 +7,27 @@ interface ItemCardProps {
   book: Book;
   isFavorite: boolean;
   onToggleFavorite: (book: Book) => void;
+  onSelectBook?: (book: Book) => void;
 }
 
 export const ItemCard: FC<ItemCardProps> = ({
   book,
   isFavorite,
   onToggleFavorite,
+  onSelectBook,
 }) => {
   const { title, coverUrl, authors, publishYear } = book;
 
+  const handleFavoriteClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    onToggleFavorite(book);
+  };
+
   return (
-    <article className="item-card">
+    <article
+      className="item-card"
+      onClick={() => onSelectBook && onSelectBook(book)}
+    >
       <div className="item-card__image-container">
         <img src={coverUrl} alt={title} className="item-card__image" />
       </div>
@@ -27,7 +37,7 @@ export const ItemCard: FC<ItemCardProps> = ({
           <button
             type="button"
             className="item-card__favorite-btn"
-            onClick={() => onToggleFavorite(book)}
+            onClick={handleFavoriteClick}
             title={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
           >
             <Star

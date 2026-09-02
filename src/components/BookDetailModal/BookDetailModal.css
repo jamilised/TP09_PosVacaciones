@@ -1,0 +1,153 @@
+.book-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(44, 34, 30, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+}
+
+.book-modal__card {
+  background-color: #f7f4ee;
+  border: 2px solid #c5a059;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-modal__close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #f3e9d2;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.book-modal__close-btn:hover {
+  transform: scale(1.15);
+}
+
+.book-modal__header {
+  background-color: #2a1b17;
+  color: #f3e9d2;
+  padding: 1.25rem 3rem 1.25rem 1.25rem;
+  border-bottom: 2px solid #c5a059;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-modal__title {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.book-modal__body {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.book-modal__cover {
+  width: 130px;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e2d7c5;
+  box-shadow: 0 4px 10px rgba(44, 34, 30, 0.15);
+  flex-shrink: 0;
+}
+
+.book-modal__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #2c221e;
+  font-size: 0.95rem;
+}
+
+.book-modal__info p {
+  margin: 0;
+  color: #5a4a3e;
+}
+
+.book-modal__quote {
+  font-style: italic;
+  background-color: #efeae1;
+  padding: 0.75rem;
+  border-left: 3px solid #c5a059;
+  margin: 0.5rem 0;
+  color: #2c221e;
+  border-radius: 0 4px 4px 0;
+}
+
+.book-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.book-modal__tag {
+  background-color: #e2d7c5;
+  color: #2c221e;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.book-modal__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e2d7c5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.book-modal__favorite-btn {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.book-modal__favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+.book-modal__star {
+  color: #a89887;
+  fill: transparent;
+  transition: color 0.2s ease, fill 0.2s ease;
+}
+
+.book-modal__star--active {
+  color: #f1c40f;
+  fill: #f1c40f;
+}
+
