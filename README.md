@@ -1,22 +1,22 @@
 # Biblioteca Digital 
 
-## 👥 Integrantes
+## Integrantes
 * **Morena Yael Zalcman**
 * **Eliel Dan Jamilis**
 
 ---
 
-## 🌐 API Utilizada
+## API Utilizada
 * **Open Library Search API**: [`https://openlibrary.org/search.json`]
 
 ---
 
-## 📝 Descripción Breve
+## Descripción 
 Aplicación web desarrollada en **React** con **TypeScript** que permite explorar, buscar y gestionar una colección de libros en tiempo real mediante la integración con la API pública de Open Library. La aplicación ofrece una experiencia de usuario fluida con estética de biblioteca clásica, permitiendo guardar libros favoritos y abrir un modal de detalle interactivo para consultar información extendida de cada obra.
 
 ---
 
-## 📂 Organización de Componentes
+## Organización de Componentes
 
 La estructura del proyecto está organizada de forma modular manteniendo una clara separación de responsabilidades:
 
