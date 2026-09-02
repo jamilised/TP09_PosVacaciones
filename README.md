@@ -1,33 +1,41 @@
-# React + TypeScript + Vite
+# Biblioteca Digital 
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## 👥 Integrantes
+* **Morena Yael Zalcman**
+* **Eliel Dan Jamilis**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 API Utilizada
+* **Open Library Search API**: [`https://openlibrary.org/search.json`]
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📝 Descripción Breve
+Aplicación web desarrollada en **React** con **TypeScript** que permite explorar, buscar y gestionar una colección de libros en tiempo real mediante la integración con la API pública de Open Library. La aplicación ofrece una experiencia de usuario fluida con estética de biblioteca clásica, permitiendo guardar libros favoritos y abrir un modal de detalle interactivo para consultar información extendida de cada obra.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## 📂 Organización de Componentes
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+La estructura del proyecto está organizada de forma modular manteniendo una clara separación de responsabilidades:
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-"# TP09_PosVacaciones" 
+```text
+src/
+├── components/           # Componentes reutilizables de UI
+│   ├── BookDetailModal/  # Modal overlay con el detalle extendido del libro
+│   ├── Favorites/        # Contenedor de la lista de favoritos
+│   ├── ItemCard/         # Tarjeta individual para mostrar cada libro
+│   ├── ItemList/         # Grid responsive de tarjetas de libros
+│   └── SearchBar/        # Barra de búsqueda con entrada controlada
+├── hooks/                # Custom Hooks para la lógica de negocio
+│   ├── useBooks.ts       # Manejo del estado de búsqueda, carga y error
+│   └── useFavorites.ts   # Manejo del estado global y persistencia de favoritos
+├── pages/                # Vistas o pantallas principales de la aplicación
+│   ├── FavoritesPage/    # Vista dedicada a los favoritos guardados
+│   └── Home/             # Vista principal con buscador y resultados
+├── services/             # Servicios e integración externa
+│   └── api.ts            # Mapeo y consultas HTTP con Axios a Open Library
+├── types/                # Interfaces y definición de tipos
+│   └── book.ts           # Modelo de datos de la entidad Book
+└── storage/              # Persistencia local mediante localStorage
