@@ -6,31 +6,26 @@ export const useFavorites = () => {
   const [favorites, setFavorites] = useState<Book[]>([]);
 
   useEffect(() => {
-    const initialFavorites = getStoredFavorites();
-    setFavorites(initialFavorites);
+    const stored = getStoredFavorites();
+    setFavorites(stored);
   }, []);
 
-  useEffect(() => {
-    saveStoredFavorites(favorites);
-  }, [favorites]);
-
   const addFavorite = (book: Book) => {
-    setFavorites((prevFavorites) => {
-
-        const exists = prevFavorites.some((fav) => fav.id === book.id);
-      if (exists) return prevFavorites;
-      return [...prevFavorites, book];
-    });
+    if (!isFavorite(book.id)) {
+      const updated = [...favorites, book];
+      setFavorites(updated);
+      saveStoredFavorites(updated);
+    }
   };
 
-  const removeFavorite = (bookId: string) => {
-    setFavorites((prevFavorites) => 
-      prevFavorites.filter((fav) => fav.id !== bookId)
-    );
+  const removeFavorite = (id: string) => {
+    const updated = favorites.filter((b) => b.id !== id);
+    setFavorites(updated);
+    saveStoredFavorites(updated);
   };
 
-  const isFavorite = (bookId: string): boolean => {
-    return favorites.some((fav) => fav.id === bookId);
+  const isFavorite = (id: string): boolean => {
+    return favorites.some((b) => b.id === id);
   };
 
   return {

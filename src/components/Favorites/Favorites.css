@@ -1,0 +1,11 @@
+.favorites {
+  width: 100%;
+}
+
+.favorites__empty {
+  text-align: center;
+  color: #5a4a3e;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}

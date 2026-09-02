@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import type { Book } from '../../types/book';
-import { ItemList } from '../../components/ItemList/ItemList';
+import { Favorites } from '../../components/Favorites/Favorites';
 import './FavoritesPage.css';
 
 interface FavoritesPageProps {
@@ -17,19 +17,11 @@ export const FavoritesPage: FC<FavoritesPageProps> = ({
   return (
     <main className="favorites-page">
       <h2 className="favorites-page__title">Mis Libros Favoritos</h2>
-      {favorites.length === 0 ? (
-        <p className="favorites-page__empty">
-          Aún no agregaste libros a tu lista de favoritos.
-        </p>
-      ) : (
-        <ItemList
-          books={favorites}
-          loading={false}
-          error={null}
-          isFavorite={isFavorite}
-          onToggleFavorite={onToggleFavorite}
-        />
-      )}
+      <Favorites
+        favorites={favorites}
+        isFavorite={isFavorite}
+        onToggleFavorite={onToggleFavorite}
+      />
     </main>
   );
 };
